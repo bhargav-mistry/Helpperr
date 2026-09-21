@@ -1,0 +1,94 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { HERO2 } from "@/lib/home-new-content";
+import { getGsap, prefersReducedMotion } from "@/lib/gsap";
+import Section from "@/components/home-new/Section";
+import Reveal from "@/components/Reveal";
+import { openBookDemo } from "@/lib/book-demo-modal";
+
+export default function Hero2() {
+  const mockupRef = useRef<HTMLDivElement>(null);
+
+  // Scroll-scrubbed zoom on the browser mockup, matching the scale/parallax
+  // treatment used elsewhere on this page (see FeaturesSticky's sticky panel).
+  useEffect(() => {
+    const mockup = mockupRef.current;
+    if (!mockup || prefersReducedMotion()) return;
+
+    const { gsap, ScrollTrigger } = getGsap();
+    const tween = gsap.fromTo(
+      mockup,
+      { scale: 0.92, y: 40 },
+      {
+        scale: 1.06,
+        y: -10,
+        ease: "none",
+        scrollTrigger: {
+          trigger: mockup,
+          start: "top 90%",
+          end: "top 20%",
+          scrub: 0.9,
+        },
+      }
+    );
+
+    // The trigger's start/end are measured against the DOM layout at creation
+    // time. The <video> above loads asynchronously and can change this
+    // section's height once its intrinsic size resolves, and Fast Refresh in
+    // dev can leave a stale measurement after edits shift content around —
+    // both cases just need ScrollTrigger to recalc against the current layout.
+    const video = mockup.querySelector("video");
+    const refresh = () => ScrollTrigger.refresh();
+    video?.addEventListener("loadedmetadata", refresh);
+    const raf = requestAnimationFrame(refresh);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      video?.removeEventListener("loadedmetadata", refresh);
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    };
+  }, []);
+
+  return (
+    <Section id="product-showcase" className="border-b px-5 py-16 sm:px-10 lg:py-20">
+      <Reveal as="div" selector="*" className="mx-auto flex max-w-2xl flex-col items-center gap-4 text-center">
+        <h2 className="text-3xl font-medium leading-[1.1] text-white sm:text-4xl lg:text-[40px]">
+          {HERO2.heading}
+        </h2>
+        <p className="text-lg leading-relaxed text-white/60">{HERO2.sub}</p>
+        <div className="flex flex-wrap justify-center gap-6 pt-2">
+          <button
+            onClick={openBookDemo}
+            className="cursor-pointer rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#5B21B6] px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:opacity-90 active:scale-[0.98]"
+          >
+            {HERO2.primaryCta}
+          </button>
+          <button className="cursor-pointer rounded-lg border border-white px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:bg-white hover:text-[#0a0a0a] active:scale-[0.98]">
+            {HERO2.secondaryCta}
+          </button>
+        </div>
+      </Reveal>
+
+      <Reveal as="div" className="mt-16">
+        <div className="mx-auto max-w-5xl">
+          <div
+            ref={mockupRef}
+            className="overflow-hidden rounded-2xl border border-[#2c2c2c] bg-[#141414] shadow-[0_40px_100px_-30px_rgba(0,0,0,0.8)] will-change-transform"
+          >
+            <div className="flex items-center gap-2 border-b border-[#2c2c2c] bg-[#0f0f0f] px-4 py-3">
+              <span className="size-3 rounded-full" style={{ background: "#FF5F57" }} />
+              <span className="size-3 rounded-full" style={{ background: "#FFBD2E" }} />
+              <span className="size-3 rounded-full" style={{ background: "#28CA41" }} />
+              <div className="ml-3 rounded-md bg-[#0a0a0a] px-3 py-1 text-xs text-white/40">
+                helpperr.com
+              </div>
+            </div>
+            <video src="/demo.mp4" autoPlay loop muted playsInline className="block h-auto w-full" />
+          </div>
+        </div>
+      </Reveal>
+    </Section>
+  );
+}

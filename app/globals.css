@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+/* Fixed light theme — matches Samvaad's palette exactly, no system dark-mode switching. */
+:root {
+  --bg: #f4f2f1;
+  --bg-alt: #f1f0ee;
+  --surface: #ffffff;
+  --surface-blur: #ffffff60;
+  --border: #e5e0dc;
+  --border-2: #ded8d3;
+  --ink: #111111;
+  --text: #111111;
+  --text-2: #3d3d3d;
+  --text-muted: #6b6560;
+  --text-dim: #999999;
+  --accent-blue: #2572ed;
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 24px 60px rgba(0, 0, 0, 0.14);
+  --rainbow: linear-gradient(90deg, #ff2f2f 0%, #ef7b16 36%, #8a43e1 70%, #d511fd 100%);
+  --pastel: linear-gradient(90deg, #fbc2eb 0%, #a6c1ee 100%);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-border-2: var(--border-2);
+  --color-ink: var(--ink);
+  --color-text: var(--text);
+  --color-text-2: var(--text-2);
+  --color-text-muted: var(--text-muted);
+  --color-text-dim: var(--text-dim);
+  --color-accent-blue: var(--accent-blue);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-bricolage);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-bricolage), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.rainbow-glow {
+  background: var(--rainbow);
+  filter: blur(14px);
+}
+
+.pastel-text {
+  background: var(--pastel);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Traveling light pulse along an SVG connector line — animates stroke-dashoffset
+   through exactly one dash-pattern period (dasharray "10 46" => period 56),
+   so the loop is seamless regardless of the actual path length. */
+@keyframes hub-flow {
+  to {
+    stroke-dashoffset: -56;
+  }
+}
+
+.hub-glow-line {
+  stroke-dasharray: 10 46;
+  animation: hub-flow 2.4s linear infinite;
+}
+
+/* Preloader water-fill wave: a text-clipped background tile (see
+   background-size on .preloader-wave-mask) scrolled by exactly one tile
+   width so the ripple loops seamlessly. background-position-x is animated
+   here; background-position-y is set inline per-frame to track fill
+   progress, and the two don't conflict since they're independent
+   longhand properties. */
+@keyframes preloader-wave-scroll {
+  from {
+    background-position-x: 0;
+  }
+  to {
+    background-position-x: -11vw;
+  }
+}
+
+.preloader-wave-mask {
+  animation: preloader-wave-scroll 2.8s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee {
+    animation: none;
+  }
+
+  .hub-glow-line {
+    animation: none;
+  }
+
+  .preloader-wave-mask {
+    animation: none;
+  }
+}
