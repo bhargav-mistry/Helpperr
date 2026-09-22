@@ -21,7 +21,7 @@ export default function Header({ onBookDemo }: { onBookDemo: () => void }) {
       <header
         className={`w-full max-w-8xl transition-all duration-800 ease-out ${
           scrolled || menuOpen
-            ? "max-w-5xl rounded-2xl  border border-border bg-surface px-4 py-3 shadow-[var(--shadow-md)]"
+            ? "max-w-5xl rounded-2xl  border border-border bg-surface px-4 py-3 shadow-elevation-md"
             : "max-w-7xl rounded-2xl border border-transparent bg-transparent px-2 py-3"
         }`}
       >

@@ -98,7 +98,7 @@ export default function HowItWorks() {
               className="sticky top-1/2 -translate-y-1/2 px-10 py-10"
               style={{ marginTop: headerHeight }}
             >
-              <div className="relative aspect-[4/3] w-full max-w-xl overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-xl)]">
+              <div className="relative aspect-[4/3] w-full max-w-xl overflow-hidden rounded-2xl border border-border bg-surface shadow-elevation-xl">
                 {HOW_IT_WORKS.steps.map((step, i) => (
                   <div
                     key={step.num}

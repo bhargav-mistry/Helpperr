@@ -48,7 +48,7 @@ export default function Nav() {
         </nav>
 
         <div className="ml-auto hidden lg:block">
-          <button className="cursor-pointer rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#5B21B6] px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:opacity-90 active:scale-[0.98]">
+          <button className="cursor-pointer rounded-full bg-accent-primary px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:opacity-90 active:scale-[0.98]">
             Get Started
           </button>
         </div>
@@ -84,7 +84,7 @@ export default function Nav() {
             ))}
             <button
               onClick={() => setMenuOpen(false)}
-              className="mt-2 cursor-pointer rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#5B21B6] px-6 py-3 text-base font-medium text-white transition-transform active:scale-[0.98]"
+              className="mt-2 cursor-pointer rounded-full bg-accent-primary px-6 py-3 text-base font-medium text-white transition-transform active:scale-[0.98]"
             >
               Get Started
             </button>

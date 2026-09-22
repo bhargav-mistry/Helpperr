@@ -98,6 +98,13 @@ export default function HowItWorks() {
             <clipPath id="how-it-works-reveal" clipPathUnits="userSpaceOnUse">
               <rect ref={clipRef} x="-5" y="-20" width="0" height="130" />
             </clipPath>
+            <filter id="how-it-works-glow" x="-200%" y="-200%" width="500%" height="500%">
+              <feGaussianBlur stdDeviation="1.6" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
           </defs>
           {/* Always-visible faint base line, full length */}
           <path
@@ -109,15 +116,16 @@ export default function HowItWorks() {
             strokeDasharray="4 4"
             vectorEffect="non-scaling-stroke"
           />
-          {/* Full-opacity line that fills in over the base as the user scrolls */}
+          {/* Full-opacity line that fills in over the base as the user scrolls, with a soft purple glow */}
           <path
             d={PATH}
             fill="none"
             stroke="#5B21B6"
-            strokeWidth="1"
+            strokeWidth="1.2"
             strokeDasharray="4 4"
             vectorEffect="non-scaling-stroke"
             clipPath="url(#how-it-works-reveal)"
+            filter="url(#how-it-works-glow)"
           />
         </svg>
 

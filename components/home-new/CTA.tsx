@@ -27,12 +27,12 @@ export default function CTASection() {
           ))}
         </h2>
         <div className="flex flex-wrap justify-center gap-6 pt-6">
-          <button className="cursor-pointer rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#5B21B6] px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:opacity-90 active:scale-[0.98]">
+          <button className="cursor-pointer rounded-full bg-accent-primary px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:opacity-90 active:scale-[0.98]">
             {CTA.primaryCta}
           </button>
           <button
             onClick={openBookDemo}
-            className="cursor-pointer rounded-lg border border-white px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:bg-white hover:text-[#0a0a0a] active:scale-[0.98]"
+            className="cursor-pointer rounded-full border border-white px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:bg-white hover:text-[#0a0a0a] active:scale-[0.98]"
           >
             {CTA.secondaryCta}
           </button>

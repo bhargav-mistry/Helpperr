@@ -24,7 +24,7 @@ export default function UseCases() {
           {USE_CASES.items.map((item) => (
             <div
               key={item}
-              className="flex items-center gap-3 rounded-xl border border-border bg-surface px-5 py-4 shadow-[var(--shadow-sm)] transition-all hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)]"
+              className="flex items-center gap-3 rounded-xl border border-border bg-surface px-5 py-4 shadow-elevation-sm transition-all hover:-translate-y-0.5 hover:shadow-elevation-md"
             >
               <CheckCircle2 size={18} className="shrink-0 text-accent-blue" />
               <span className="text-sm font-medium text-text-2">{item}</span>

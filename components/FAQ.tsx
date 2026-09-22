@@ -30,7 +30,7 @@ export default function FAQ() {
             return (
               <div
                 key={item.q}
-                className="overflow-hidden rounded-xl border border-border bg-surface shadow-[var(--shadow-sm)]"
+                className="overflow-hidden rounded-xl border border-border bg-surface shadow-elevation-sm"
               >
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}

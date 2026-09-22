@@ -43,7 +43,7 @@ export default function ProductShowcase() {
         </Reveal>
 
         <div className="mt-14 grid grid-cols-1 items-start gap-6 lg:grid-cols-[280px_1fr]">
-          <div className="flex flex-col gap-1.5 rounded-2xl border border-border bg-surface p-3 shadow-[var(--shadow-sm)] lg:sticky lg:top-28">
+          <div className="flex flex-col gap-1.5 rounded-2xl border border-border bg-surface p-3 shadow-elevation-sm lg:sticky lg:top-28">
             {SHOWCASE.tabs.map((tab, i) => {
               const Icon = ICONS[i];
               const isActive = active === i;

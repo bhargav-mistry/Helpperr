@@ -122,7 +122,7 @@ export default function Hero({ onBookDemo }: { onBookDemo: () => void }) {
         </div>
 
         <div ref={mockupRef} className="relative z-10 mx-auto mt-20 max-w-5xl will-change-transform">
-          <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[var(--shadow-xl)]">
+          <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-elevation-xl">
             <div className="flex items-center gap-2 border-b border-border bg-bg-alt px-4 py-3">
               <span className="h-3 w-3 rounded-full" style={{ background: "#FF5F57" }} />
               <span className="h-3 w-3 rounded-full" style={{ background: "#FFBD2E" }} />

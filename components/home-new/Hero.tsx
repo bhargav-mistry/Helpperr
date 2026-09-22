@@ -68,11 +68,11 @@ export default function Hero() {
             <div className="flex flex-wrap gap-6 pt-6">
               <button
                 onClick={openBookDemo}
-                className="cursor-pointer rounded-lg bg-gradient-to-r from-[#3B82F6] to-[#5B21B6] px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:opacity-90 active:scale-[0.98]"
+                className="cursor-pointer rounded-full bg-accent-primary px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:opacity-90 active:scale-[0.98]"
               >
                 {HERO.primaryCta}
               </button>
-              <button className="cursor-pointer rounded-lg border border-white px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:bg-white hover:text-[#0a0a0a] active:scale-[0.98]">
+              <button className="cursor-pointer rounded-full border border-white px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.03] hover:bg-white hover:text-[#0a0a0a] active:scale-[0.98]">
                 {HERO.secondaryCta}
               </button>
             </div>
@@ -92,15 +92,15 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative hidden h-auto min-h-[400px] flex-1 overflow-hidden lg:block">
-        {[-48, 108.6, 264.4, 421, 576].map((top, i) => (
-          <div
-            key={i}
-            aria-hidden
-            className="absolute h-[244px] w-[1400px] bg-repeat-x opacity-25"
-            style={{ top, left: -190, backgroundImage: "url(/home-new/stripe-texture.svg)" }}
-          />
-        ))}
+      <div className="relative hidden h-auto min-h-[400px] flex-1 overflow-hidden rounded-2xl border border-[#2c2c2c] lg:block">
+        <video
+          src="/home-new/Hero.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 size-full object-cover"
+        />
       </div>
     </Section>
   );

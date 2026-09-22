@@ -73,7 +73,7 @@ export default function Footer() {
         </div>
       </Section>
 
-      <div aria-hidden className="relative h-[16vw] w-full select-none overflow-hidden pointer-events-none">
+      {/* <div aria-hidden className="relative h-[16vw] w-full select-none overflow-hidden pointer-events-none">
         <p
           className="absolute inset-x-0 top-0 whitespace-nowrap text-center text-[24vw] font-extrabold leading-none tracking-tight text-[#232323]"
        style={{
@@ -87,7 +87,7 @@ export default function Footer() {
         >
           {FOOTER.watermark}
         </p>
-      </div>
+      </div> */}
     </footer>
   );
 }

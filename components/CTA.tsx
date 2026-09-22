@@ -25,7 +25,7 @@ export default function CTA({ onBookDemo }: { onBookDemo: () => void }) {
           <div className="relative mt-8 flex justify-center">
             <button
               onClick={onBookDemo}
-              className="rounded-lg bg-white px-7 py-3.5 text-base font-semibold text-ink shadow-[var(--shadow-lg)] transition-transform hover:scale-[1.03] active:scale-[0.98]"
+              className="rounded-lg bg-white px-7 py-3.5 text-base font-semibold text-ink shadow-elevation-lg transition-transform hover:scale-[1.03] active:scale-[0.98]"
             >
               {CTA_DATA.button}
             </button>

@@ -73,8 +73,9 @@ export default function FeatureHub() {
         >
           <defs>
             <filter id="hub-glow" x="-200%" y="-200%" width="500%" height="500%">
-              <feGaussianBlur stdDeviation="1.4" result="blur" />
+              <feGaussianBlur stdDeviation="2.2" result="blur" />
               <feMerge>
+                <feMergeNode in="blur" />
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
               </feMerge>

@@ -50,7 +50,7 @@ export default function DemoModal({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-md rounded-2xl bg-surface p-8 shadow-[var(--shadow-xl)]"
+        className="relative w-full max-w-md rounded-2xl bg-surface p-8 shadow-elevation-xl"
       >
         <button
           onClick={reset}

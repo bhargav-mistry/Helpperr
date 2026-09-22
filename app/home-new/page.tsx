@@ -9,6 +9,7 @@ import HowItWorks from "@/components/home-new/HowItWorks";
 import FeatureHub from "@/components/home-new/FeatureHub";
 import LogoMarquee from "@/components/home-new/LogoMarquee";
 import FeaturesSticky from "@/components/home-new/FeaturesSticky";
+import Pricing from "@/components/home-new/Pricing";
 import Stats from "@/components/home-new/Stats";
 import UseCases from "@/components/home-new/UseCases";
 import FAQSection from "@/components/home-new/FAQ";
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 
 export default function HomeNew() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] font-[family-name:var(--font-bricolage)] text-white">
+    <div className="min-h-screen bg-[#0a0a0a] font-display text-white">
       <Preloader />
       <Nav />
       <AnnouncementBar />
@@ -33,6 +34,7 @@ export default function HomeNew() {
       <FeatureHub />
       {/* <LogoMarquee /> */}
       <FeaturesSticky />
+      <Pricing />
       <Stats />
       <UseCases />
       <FAQSection />

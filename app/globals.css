@@ -8,12 +8,15 @@
   --surface-blur: #ffffff60;
   --border: #e5e0dc;
   --border-2: #ded8d3;
-  --ink: #111111;
-  --text: #111111;
+  --ink: #2c2c2c;
+  --text: #2c2c2c;
   --text-2: #3d3d3d;
   --text-muted: #6b6560;
   --text-dim: #999999;
   --accent-blue: #2572ed;
+  /* Primary button color for the dark home-new page — change here to
+     re-theme every "Book a Demo" / "Get Started" button at once. */
+  --accent-primary: #1f16b3;
   --r-sm: 8px;
   --r-md: 14px;
   --r-lg: 24px;
@@ -38,6 +41,7 @@
   --color-text-muted: var(--text-muted);
   --color-text-dim: var(--text-dim);
   --color-accent-blue: var(--accent-blue);
+  --color-accent-primary: var(--accent-primary);
   --font-sans: var(--font-inter);
   --font-display: var(--font-bricolage);
 }
@@ -70,6 +74,26 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Plain classes for the --shadow-* tokens, instead of Tailwind's
+   shadow-[var(--shadow-md)] arbitrary-value syntax, which triggers a
+   Turbopack/Lightning CSS parser bug that corrupts nearby generated CSS
+   (see git history for the "Parsing CSS source code failed" build error). */
+.shadow-elevation-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-elevation-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-elevation-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-elevation-xl {
+  box-shadow: var(--shadow-xl);
 }
 
 @keyframes fadeIn {
