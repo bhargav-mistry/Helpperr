@@ -150,6 +150,73 @@ export const FEATURES = {
   ],
 };
 
+export const PRICING = {
+  badge: "PRICING",
+  heading: ["Simple, credit-based", "pricing."],
+  description:
+    "Every plan runs on AI credits. Use them however you work — pay for what your team actually generates.",
+  plans: [
+    {
+      name: "Free",
+      price: "$0",
+      period: "14-day trial",
+      credits: "100 credits",
+      creditsNote: "or until your trial credits run out, whichever comes first",
+      description: "Try Helpperr with no credit card required.",
+      cta: "Start Free",
+      features: [
+        "100 AI credits total (trial)",
+        "Up to 30 credits per generation",
+        "1 user, 1 personal workspace",
+        "View & share guides after trial ends",
+      ],
+      highlight: false,
+    },
+    {
+      name: "Pro",
+      price: "$15",
+      period: "/ month",
+      credits: "700 credits",
+      creditsNote: "refreshed every month",
+      description: "For individuals documenting solo.",
+      cta: "Get Pro",
+      features: [
+        "700 AI credits per month",
+        "1 user, 1 personal workspace",
+        "Billed to your user account",
+        "Top up credits anytime",
+      ],
+      highlight: true,
+    },
+    {
+      name: "Team",
+      price: "$25",
+      period: "/ seat / month",
+      credits: "1,200 credits",
+      creditsNote: "per seat, pooled for the whole team",
+      description: "For teams who share the documentation workload.",
+      cta: "Get Team",
+      features: [
+        "1,200 AI credits per seat",
+        "Minimum 2 seats",
+        "Shared workspace credit pool",
+        "Billed to the workspace",
+      ],
+      highlight: false,
+      seats: { min: 2, max: 15, default: 5 },
+    },
+  ],
+  topUps: {
+    heading: "Need more credits?",
+    description:
+      "Top up anytime once your monthly credits run out. Purchased credits stay valid for 12 months and roll over independently — they're never lost when your monthly credits reset.",
+    items: [
+      { name: "Starter", credits: "1,000 credits", price: "$20" },
+      { name: "Growth", credits: "3,000 credits", price: "$45" },
+    ],
+  },
+};
+
 export const STATS = {
   heading: {
     muted: "Your team already knows the workflow. ",
